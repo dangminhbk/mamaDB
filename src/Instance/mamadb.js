@@ -13,7 +13,7 @@ class mamadb {
     getUrl(url, filename) {
         return Prosmise(function (resolve, reject) {
             if (typeof (url) === String) {
-                fetch(urlToFetch)
+                fetch(url)
                     .then(dat => dat.blob())
                     .then(dat => resolve(new File([dat], filename)))
                     .catch(err => {
@@ -39,7 +39,7 @@ class mamadb {
         }
         // Valid key
         if (urlToFetch) {
-            this.getUrl(urlToFetch)
+            this.getUrl(urlToFetch, key)
                 .then(value => value)
                 .catch(err => {
                     console.log(err);
